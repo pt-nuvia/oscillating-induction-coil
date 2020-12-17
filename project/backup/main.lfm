@@ -1,0 +1,218 @@
+object Form1: TForm1
+  Left = 192
+  Height = 660
+  Top = 208
+  Width = 1243
+  Anchors = [akTop]
+  Caption = 'Oscillating induction coil'
+  ClientHeight = 630
+  ClientWidth = 1243
+  DesignTimePPI = 144
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '1.8.4.0'
+  object PanelRight: TPanel
+    AnchorSideRight.Control = PanelLeft
+    Left = 712
+    Height = 528
+    Top = 0
+    Width = 531
+    Align = alRight
+    Caption = 'PanelRight'
+    ClientHeight = 528
+    ClientWidth = 531
+    TabOrder = 0
+    object ChartRight: TChart
+      Left = 11
+      Height = 506
+      Top = 11
+      Width = 509
+      AxisList = <      
+        item
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelFont.Orientation = 900
+          Title.LabelBrush.Style = bsClear
+        end      
+        item
+          Intervals.Count = 8
+          Intervals.Options = [aipUseCount, aipUseNiceSteps]
+          Alignment = calBottom
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.Visible = True
+          Title.Caption = 'frequency, Hz'
+          Title.LabelBrush.Style = bsClear
+        end>
+      Foot.Brush.Color = clBtnFace
+      Foot.Font.Color = clBlue
+      Title.Brush.Color = clBtnFace
+      Title.Font.Color = clBlue
+      Title.Text.Strings = (
+        'TAChart'
+      )
+      Align = alClient
+      BorderSpacing.Around = 10
+      object FFTSeries: TLineSeries
+        LinePen.Color = clMaroon
+        Pointer.Style = psCircle
+      end
+      object BSplineSeries4: TBSplineSeries
+        Degree = 2
+        Pen.Color = clFuchsia
+        Pen.Width = 2
+        Pointer.Visible = False
+      end
+      object BSplineSeries2: TBSplineSeries
+        Degree = 1
+        Pen.Color = clBlue
+        Pointer.Visible = False
+      end
+      object BSplineSeries6: TBSplineSeries
+        Pen.Color = clLime
+        Pointer.Visible = False
+      end
+    end
+  end
+  object PanelLeft: TPanel
+    Left = 0
+    Height = 528
+    Top = 0
+    Width = 705
+    Align = alClient
+    Caption = 'PanelLeft'
+    ClientHeight = 528
+    ClientWidth = 705
+    TabOrder = 1
+    object ChartLeft: TChart
+      Left = 11
+      Height = 506
+      Top = 11
+      Width = 683
+      AxisList = <      
+        item
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelFont.Orientation = 900
+          Title.LabelBrush.Style = bsClear
+        end      
+        item
+          Intervals.Count = 20
+          Intervals.Options = [aipUseCount, aipUseNiceSteps]
+          Alignment = calBottom
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.Visible = True
+          Title.Caption = 'time, sec'
+          Title.LabelBrush.Style = bsClear
+        end>
+      Foot.Brush.Color = clBtnFace
+      Foot.Font.Color = clBlue
+      Title.Brush.Color = clBtnFace
+      Title.Font.Color = clBlue
+      Title.Text.Strings = (
+        'TAChart'
+      )
+      Align = alClient
+      BorderSpacing.Around = 10
+      object SignalSeries: TLineSeries
+        LinePen.Color = clBlue
+      end
+    end
+  end
+  object PanelBottom: TPanel
+    Left = 0
+    Height = 102
+    Top = 528
+    Width = 1243
+    Align = alBottom
+    ClientHeight = 102
+    ClientWidth = 1243
+    TabOrder = 2
+    object ledit_signal_length: TLabeledEdit
+      Left = 1136
+      Height = 33
+      Top = 8
+      Width = 64
+      EditLabel.AnchorSideTop.Control = ledit_signal_length
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = ledit_signal_length
+      EditLabel.AnchorSideBottom.Control = ledit_signal_length
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 996
+      EditLabel.Height = 25
+      EditLabel.Top = 12
+      EditLabel.Width = 137
+      EditLabel.Caption = 'Signal length, sec'
+      EditLabel.ParentColor = False
+      EditLabel.Layout = tlCenter
+      LabelPosition = lpLeft
+      TabOrder = 0
+      Text = 'ledit_signal_length'
+    end
+    object ledit_sampling: TLabeledEdit
+      Left = 1136
+      Height = 33
+      Top = 40
+      Width = 64
+      EditLabel.AnchorSideTop.Control = ledit_sampling
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = ledit_sampling
+      EditLabel.AnchorSideBottom.Control = ledit_sampling
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 987
+      EditLabel.Height = 25
+      EditLabel.Top = 44
+      EditLabel.Width = 146
+      EditLabel.Caption = 'Sampling rate, sps'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 1
+      Text = 'ledit_sampling'
+    end
+    object ledit_fft_resolution: TLabeledEdit
+      Left = 1136
+      Height = 33
+      Top = 69
+      Width = 64
+      EditLabel.AnchorSideTop.Control = ledit_fft_resolution
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = ledit_fft_resolution
+      EditLabel.AnchorSideBottom.Control = ledit_fft_resolution
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 943
+      EditLabel.Height = 25
+      EditLabel.Top = 73
+      EditLabel.Width = 190
+      EditLabel.Caption = 'Spectrum resolution, Hz'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 2
+      Text = 'ledit_fft_resolution'
+    end
+  end
+  object Splitter1: TSplitter
+    Left = 705
+    Height = 528
+    Top = 0
+    Width = 7
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object MainMenu1: TMainMenu
+    left = 157
+    top = 60
+    object MenuAction: TMenuItem
+      Caption = 'Signal'
+      object MenuGenerate: TMenuItem
+        Caption = 'Signal Generate'
+        OnClick = MenuGenerateClick
+      end
+      object MenuSettings: TMenuItem
+        Caption = 'Signal Settings'
+        OnClick = MenuSettingsClick
+      end
+    end
+  end
+end

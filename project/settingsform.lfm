@@ -1,0 +1,159 @@
+object Form2: TForm2
+  Left = 150
+  Height = 394
+  Top = 287
+  Width = 502
+  BorderStyle = bsDialog
+  Caption = 'Settings'
+  ClientHeight = 394
+  ClientWidth = 502
+  DesignTimePPI = 144
+  LCLVersion = '1.8.4.0'
+  object ButtonOk: TButton
+    Left = 320
+    Height = 25
+    Top = 352
+    Width = 75
+    Caption = 'OK'
+    OnClick = ButtonOkClick
+    TabOrder = 0
+  end
+  object ButtonCancel: TButton
+    Left = 208
+    Height = 25
+    Top = 352
+    Width = 75
+    Caption = 'Cancel'
+    OnClick = ButtonCancelClick
+    TabOrder = 1
+  end
+  object Sn: TGroupBox
+    Left = 24
+    Height = 312
+    Top = 24
+    Width = 448
+    Caption = 'Oscillation'
+    ClientHeight = 282
+    ClientWidth = 444
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 112
+      Height = 25
+      Top = 8
+      Width = 36
+      Caption = 'f, Hz'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 112
+      Height = 25
+      Top = 40
+      Width = 235
+      Caption = 'max angle of oscillations, deg'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 112
+      Height = 50
+      Top = 72
+      Width = 362
+      Anchors = [akTop, akLeft, akRight]
+      Caption = 'orientation of magnetic field to the axis of the coil, deg'
+      ParentColor = False
+      WordWrap = True
+    end
+    object Label4: TLabel
+      Left = 144
+      Height = 25
+      Top = 232
+      Width = 80
+      Caption = 'signal size'
+      ParentColor = False
+    end
+    object Combo_km: TComboBox
+      Left = 240
+      Height = 33
+      Top = 232
+      Width = 80
+      ItemHeight = 25
+      ItemIndex = 3
+      Items.Strings = (
+        '8'
+        '16'
+        '32'
+        '64'
+        '128'
+        '256'
+        '512'
+        '1024'
+        '2048'
+        '4096'
+        '8192'
+        '16384'
+      )
+      Style = csDropDownList
+      TabOrder = 0
+      Text = '64'
+    end
+    object FlEdit_f1: TFloatSpinEdit
+      Left = 24
+      Height = 33
+      Top = 8
+      Width = 70
+      Increment = 1
+      MaxValue = 100
+      MinValue = 0
+      TabOrder = 1
+      Value = 0
+    end
+    object FlEdit_max_phi: TFloatSpinEdit
+      Left = 24
+      Height = 33
+      Top = 40
+      Width = 70
+      Increment = 1
+      MaxValue = 200
+      MinValue = -50
+      TabOrder = 2
+      Value = 0
+    end
+    object FlEdit_phi1: TFloatSpinEdit
+      Left = 24
+      Height = 33
+      Top = 72
+      Width = 70
+      Increment = 1
+      MaxValue = 180
+      MinValue = -180
+      TabOrder = 3
+      Value = 0
+    end
+    object CheckBoxWindowing: TCheckBox
+      Left = 32
+      Height = 29
+      Top = 192
+      Width = 173
+      Caption = 'Apply Windowing'
+      TabOrder = 4
+    end
+    object FlEdit_noise: TFloatSpinEdit
+      Left = 24
+      Height = 33
+      Top = 152
+      Width = 67
+      Increment = 1
+      MaxValue = 100
+      MinValue = 0
+      TabOrder = 5
+      Value = 0
+    end
+    object Label5: TLabel
+      Left = 112
+      Height = 25
+      Top = 152
+      Width = 69
+      Caption = 'Noise, %'
+      ParentColor = False
+    end
+  end
+end
